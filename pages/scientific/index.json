@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "numpad": "/components/numpad/numpad",
+    "display-area": "/components/display/display"
+  },
+  "navigationBarTitleText": "科学计算器"
+}

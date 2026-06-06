@@ -1,0 +1,115 @@
+<!-- 房贷计算页面 -->
+<scroll-view class="mortgage-page" scroll-y enhanced show-scrollbar="{{false}}">
+  <view class="mortgage-form">
+    <!-- 贷款类型 -->
+    <view class="type-tabs">
+      <view
+        class="type-tab {{loanType === 'commercial' ? 'type-active' : ''}}"
+        data-type="commercial"
+        bindtap="onLoanType"
+      >
+        <text>商业贷款</text>
+      </view>
+      <view
+        class="type-tab {{loanType === 'providentFund' ? 'type-active' : ''}}"
+        data-type="providentFund"
+        bindtap="onLoanType"
+      >
+        <text>公积金贷款</text>
+      </view>
+      <view
+        class="type-tab {{loanType === 'combined' ? 'type-active' : ''}}"
+        data-type="combined"
+        bindtap="onLoanType"
+      >
+        <text>组合贷款</text>
+      </view>
+    </view>
+
+    <!-- 还款方式 -->
+    <view class="type-tabs">
+      <view
+        class="type-tab {{repaymentType === 'equalPayment' ? 'type-active' : ''}}"
+        data-type="equalPayment"
+        bindtap="onRepaymentType"
+      >
+        <text>等额本息</text>
+      </view>
+      <view
+        class="type-tab {{repaymentType === 'equalPrincipal' ? 'type-active' : ''}}"
+        data-type="equalPrincipal"
+        bindtap="onRepaymentType"
+      >
+        <text>等额本金</text>
+      </view>
+    </view>
+
+    <!-- 表单 -->
+    <view class="form-card">
+      <text class="form-label">房屋总价（万元）</text>
+      <input
+        class="form-input"
+        type="digit"
+        placeholder="输入房屋总价（万元）"
+        value="{{totalPrice}}"
+        bindinput="onTotalPriceInput"
+      />
+    </view>
+
+    <view class="form-card">
+      <text class="form-label">首付比例 (%)</text>
+      <input
+        class="form-input"
+        type="digit"
+        placeholder="30"
+        value="{{downPaymentRatio}}"
+        bindinput="onDownPaymentInput"
+      />
+    </view>
+
+    <view class="form-card">
+      <text class="form-label">贷款年限</text>
+      <view class="year-options">
+        <view
+          class="year-item {{loanYears === year ? 'year-active' : ''}}"
+          wx:for="{{yearOptions}}"
+          wx:key="*this"
+          data-year="{{item}}"
+          bindtap="onYearSelect"
+        >
+          <text>{{item}}年</text>
+        </view>
+        <input
+          class="year-input"
+          type="number"
+          placeholder="自定义"
+          value="{{loanYears}}"
+          bindinput="onLoanYearsInput"
+        />
+      </view>
+    </view>
+
+    <view class="form-card">
+      <text class="form-label">贷款利率 (%)</text>
+      <input
+        class="form-input"
+        type="digit"
+        placeholder="3.75"
+        value="{{interestRate}}"
+        bindinput="onInterestRateInput"
+      />
+    </view>
+
+    <!-- 计算按钮 -->
+    <view class="calc-btn" bindtap="onCalculate">
+      <text class="calc-btn-text">开始计算</text>
+    </view>
+
+    <!-- 计算结果 -->
+    <result-card
+      title="计算结果"
+      rows="{{resultRows}}"
+      visible="{{showResult}}"
+    />
+  </view>
+</scroll-view>

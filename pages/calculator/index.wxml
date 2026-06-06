@@ -1,0 +1,32 @@
+<!-- 基础计算器页面 -->
+<view class="calc-page">
+  <!-- 顶部操作栏 -->
+  <view class="calc-header">
+    <view class="header-left" bindtap="goToHistory">
+      <text class="header-icon">🕐</text>
+    </view>
+    <view class="header-right" bindtap="goToScientific">
+      <text class="header-link">科学</text>
+    </view>
+  </view>
+
+  <!-- 显示区域 -->
+  <display-area
+    expression="{{expression}}"
+    result="{{result}}"
+    error="{{error}}"
+  />
+
+  <!-- 数字键盘 -->
+  <numpad
+    layout="basic"
+    bind:digit="onDigit"
+    bind:operator="onOperator"
+    bind:clear="onClear"
+    bind:backspace="onBackspace"
+    bind:equals="onEquals"
+    bind:percent="onPercent"
+    bind:negate="onNegate"
+    bind:decimal="onDecimal"
+  />
+</view>

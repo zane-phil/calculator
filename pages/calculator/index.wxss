@@ -1,0 +1,45 @@
+/* 基础计算器页面样式 */
+.calc-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #F7F7F7;
+}
+
+.calc-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 32rpx;
+  background-color: #F7F7F7;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-icon {
+  font-size: 36rpx;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-link {
+  font-size: var(--font-body);
+  color: var(--color-primary);
+}
+
+/* 显示区域占剩余空间 */
+.calc-page > display-area {
+  flex: 1;
+}
+
+/* 键盘区域 */
+.calc-page > numpad {
+  flex-shrink: 0;
+}

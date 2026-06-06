@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/calculator/index",
+    "pages/scientific/index",
+    "pages/currency/index",
+    "pages/unit/index",
+    "pages/tax/index",
+    "pages/mortgage/index",
+    "pages/history/index",
+    "pages/settings/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#F7F7F7",
+    "navigationBarTitleText": "计算器",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F7F7F7"
+  },
+  "tabBar": {
+    "color": "#8E8E93",
+    "selectedColor": "#FF6900",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/calculator/index",
+        "text": "计算器",
+        "iconPath": "assets/icons/calc.png",
+        "selectedIconPath": "assets/icons/calc-active.png"
+      },
+      {
+        "pagePath": "pages/currency/index",
+        "text": "换算",
+        "iconPath": "assets/icons/convert.png",
+        "selectedIconPath": "assets/icons/convert-active.png"
+      },
+      {
+        "pagePath": "pages/tax/index",
+        "text": "工具",
+        "iconPath": "assets/icons/tool.png",
+        "selectedIconPath": "assets/icons/tool-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

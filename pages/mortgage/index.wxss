@@ -1,0 +1,129 @@
+/* 房贷计算页面样式 */
+.mortgage-page {
+  height: 100vh;
+  background-color: #F7F7F7;
+}
+
+.mortgage-form {
+  padding: 24rpx 32rpx;
+  padding-bottom: 60rpx;
+}
+
+/* 类型/方式切换 */
+.type-tabs {
+  display: flex;
+  flex-direction: row;
+  gap: 4rpx;
+  background-color: #E5E5EA;
+  border-radius: 12rpx;
+  margin-bottom: 16rpx;
+  padding: 4rpx;
+}
+
+.type-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16rpx;
+  border-radius: 10rpx;
+}
+
+.type-tab text {
+  font-size: var(--font-body);
+  color: var(--color-text-secondary);
+}
+
+.type-active {
+  background-color: #FFFFFF;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.08);
+}
+
+.type-active text {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* 表单 */
+.form-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-card);
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+}
+
+.form-label {
+  font-size: var(--font-body);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.form-input {
+  width: 100%;
+  height: 80rpx;
+  font-size: 40rpx;
+  color: var(--color-text-primary);
+  border-bottom: 2rpx solid var(--color-divider);
+  padding: 8rpx 0;
+}
+
+/* 年限选择 */
+.year-options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  align-items: center;
+}
+
+.year-item {
+  padding: 12rpx 24rpx;
+  border-radius: 8rpx;
+  background-color: #F2F2F7;
+}
+
+.year-item text {
+  font-size: var(--font-body);
+  color: var(--color-text-secondary);
+}
+
+.year-active {
+  background-color: #FFF3E6;
+  border: 2rpx solid var(--color-primary);
+}
+
+.year-active text {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.year-input {
+  width: 140rpx;
+  height: 60rpx;
+  font-size: var(--font-body);
+  color: var(--color-text-primary);
+  border: 2rpx solid var(--color-divider);
+  border-radius: 8rpx;
+  text-align: center;
+  padding: 4rpx 8rpx;
+}
+
+.calc-btn {
+  background-color: var(--color-primary);
+  border-radius: 16rpx;
+  padding: 24rpx;
+  text-align: center;
+  margin: 24rpx 0;
+}
+
+.calc-btn:active {
+  background-color: var(--color-primary-dark);
+}
+
+.calc-btn-text {
+  font-size: 36rpx;
+  color: #FFFFFF;
+  font-weight: 600;
+}

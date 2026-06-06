@@ -1,0 +1,17 @@
+<!-- result-card 组件 - 计算结果卡片 -->
+<view class="result-card {{visible ? 'result-card-show' : ''}}">
+  <view class="card-header">
+    <text class="card-title">{{title}}</text>
+  </view>
+
+  <view class="card-body">
+    <view class="result-row" wx:for="{{rows}}" wx:key="label">
+      <text class="row-label">{{item.label}}</text>
+      <text class="row-value {{item.highlight ? 'row-highlight' : ''}}">{{item.value}}</text>
+    </view>
+  </view>
+
+  <view class="card-footer" wx:if="{{footerText}}">
+    <text class="footer-text">{{footerText}}</text>
+  </view>
+</view>

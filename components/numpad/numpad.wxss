@@ -1,0 +1,93 @@
+/* numpad 组件样式 */
+.numpad {
+  display: flex;
+  flex-direction: column;
+  padding: 2rpx;
+  gap: 2rpx;
+  background-color: #E5E5EA;
+}
+
+.key-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rpx;
+  flex: 1;
+}
+
+.key {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2rpx;
+  transition: background-color 0.1s;
+}
+
+.key-label {
+  font-size: 36rpx;
+  font-weight: 400;
+  user-select: none;
+}
+
+.key-label-small {
+  font-size: 24rpx;
+}
+
+/* 数字键 */
+.key-num {
+  background-color: #FFFFFF;
+  color: #1C1C1E;
+}
+
+.key-num.key-pressed {
+  background-color: #E5E5EA;
+}
+
+/* 功能键 (C, ←, %) */
+.key-func {
+  background-color: #D1D1D6;
+  color: #1C1C1E;
+}
+
+.key-func.key-pressed {
+  background-color: #C7C7CC;
+}
+
+/* 运算符键 */
+.key-operator {
+  background-color: #FF9F0A;
+  color: #FFFFFF;
+}
+
+.key-operator.key-pressed {
+  background-color: #CC7F08;
+}
+
+/* 等号键 */
+.key-equals {
+  background-color: #FF6900;
+  color: #FFFFFF;
+}
+
+.key-equals.key-pressed {
+  background-color: #CC5400;
+}
+
+/* 科学模式小按键 */
+.key-small {
+  min-height: 80rpx;
+}
+
+/* 基础模式按键高度 */
+.numpad-basic .key {
+  min-height: 110rpx;
+}
+
+.numpad .key {
+  min-height: 100rpx;
+}
+
+/* 科学模式按键稍矮 */
+.numpad-scientific .key {
+  min-height: 82rpx;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "result-card": "/components/result-card/result-card"
+  },
+  "navigationBarTitleText": "房贷计算"
+}

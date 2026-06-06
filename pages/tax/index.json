@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "result-card": "/components/result-card/result-card"
+  },
+  "navigationBarTitleText": "个税计算"
+}

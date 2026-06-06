@@ -1,0 +1,100 @@
+<!-- 设置页面 -->
+<scroll-view class="settings-page" scroll-y enhanced show-scrollbar="{{false}}">
+  <!-- 偏好设置 -->
+  <view class="section">
+    <text class="section-title">偏好</text>
+    <view class="setting-card">
+      <view class="setting-item">
+        <text class="setting-label">按键音效</text>
+        <switch
+          checked="{{soundEnabled}}"
+          bindchange="onSoundToggle"
+          color="#FF6900"
+        />
+      </view>
+      <view class="setting-divider" />
+      <view class="setting-item">
+        <text class="setting-label">振动反馈</text>
+        <switch
+          checked="{{vibrateEnabled}}"
+          bindchange="onVibrateToggle"
+          color="#FF6900"
+        />
+      </view>
+      <view class="setting-divider" />
+      <view class="setting-item">
+        <text class="setting-label">千分位分隔</text>
+        <switch
+          checked="{{thousandsSep}}"
+          bindchange="onThousandsToggle"
+          color="#FF6900"
+        />
+      </view>
+      <view class="setting-divider" />
+      <view class="setting-item">
+        <view class="setting-label-group">
+          <text class="setting-label">小数位数</text>
+          <text class="setting-value">{{decimalPlaces}} 位</text>
+        </view>
+        <slider
+          class="decimal-slider"
+          min="0"
+          max="2"
+          step="1"
+          value="{{decimalIndex}}"
+          bindchange="onDecimalChange"
+          activeColor="#FF6900"
+          backgroundColor="#E5E5EA"
+          block-size="20"
+          show-value
+        />
+      </view>
+    </view>
+  </view>
+
+  <!-- 数据管理 -->
+  <view class="section">
+    <text class="section-title">数据</text>
+    <view class="setting-card">
+      <view class="setting-item" bindtap="onClearHistory">
+        <text class="setting-label">清除历史记录</text>
+        <text class="setting-arrow">›</text>
+      </view>
+      <view class="setting-divider" />
+      <view class="setting-item" bindtap="onClearRatesCache">
+        <text class="setting-label">清除汇率缓存</text>
+        <text class="setting-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 关于 -->
+  <view class="section">
+    <text class="section-title">关于</text>
+    <view class="setting-card">
+      <view class="setting-item">
+        <text class="setting-label">版本</text>
+        <text class="setting-value">1.0.0</text>
+      </view>
+      <view class="setting-divider" />
+      <view class="setting-item" bindtap="onFeedback">
+        <text class="setting-label">意见反馈</text>
+        <text class="setting-arrow">›</text>
+      </view>
+      <view class="setting-divider" />
+      <view class="setting-item" bindtap="onPrivacy">
+        <text class="setting-label">隐私政策</text>
+        <text class="setting-arrow">›</text>
+      </view>
+      <view class="setting-divider" />
+      <view class="setting-item" bindtap="onAgreement">
+        <text class="setting-label">用户协议</text>
+        <text class="setting-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <text class="footer-text">© 2026 Calculator Mini Program</text>
+  </view>
+</scroll-view>

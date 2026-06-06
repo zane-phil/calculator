@@ -1,0 +1,79 @@
+/* 科学计算器页面样式 */
+.calc-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #F7F7F7;
+}
+
+.calc-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 32rpx;
+  background-color: #F7F7F7;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.deg-toggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8rpx 16rpx;
+  background-color: #E5E5EA;
+  border-radius: 8rpx;
+}
+
+.deg-text {
+  font-size: var(--font-caption);
+  color: var(--color-text-secondary);
+  padding: 4rpx 8rpx;
+}
+
+.deg-active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.deg-divider {
+  font-size: var(--font-caption);
+  color: var(--color-divider);
+  margin: 0 4rpx;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+}
+
+.history-btn {
+  display: flex;
+  align-items: center;
+}
+
+.header-icon {
+  font-size: 36rpx;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-link {
+  font-size: var(--font-body);
+  color: var(--color-primary);
+}
+
+.calc-page > display-area {
+  flex-shrink: 0;
+}
+
+.calc-page > numpad {
+  flex: 1;
+}

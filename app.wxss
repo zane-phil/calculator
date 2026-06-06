@@ -1,0 +1,99 @@
+/* 全局 CSS 变量 */
+page {
+  --color-primary: #FF6900;
+  --color-primary-dark: #B14900;
+  --color-bg-light: #F7F7F7;
+  --color-bg-dark: #1C1C1E;
+  --color-card-light: #FFFFFF;
+  --color-card-dark: #2C2C2E;
+  --color-func-gray: #A5A5A5;
+  --color-text-primary: #1C1C1E;
+  --color-text-secondary: #8E8E93;
+  --color-divider: #E5E5EA;
+  --color-error: #FF3B30;
+  --color-success: #34C759;
+
+  --font-h1: 72rpx;
+  --font-h2: 36rpx;
+  --font-h3: 32rpx;
+  --font-body: 28rpx;
+  --font-caption: 24rpx;
+  --font-small: 20rpx;
+
+  --radius-card: 16rpx;
+  --radius-button: 12rpx;
+  --spacing-page: 32rpx;
+  --spacing-block: 24rpx;
+  --spacing-list: 16rpx;
+  --gap-button: 2rpx;
+
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-primary);
+  font-size: var(--font-body);
+  box-sizing: border-box;
+}
+
+/* 全局重置 */
+view, text, button, input {
+  box-sizing: border-box;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  line-height: inherit;
+}
+
+button::after {
+  border: none;
+}
+
+/* 工具类 */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* 页面通用容器 */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--color-bg-light);
+}
+
+/* 卡片 */
+.card {
+  background-color: var(--color-card-light);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-block);
+  margin: var(--spacing-block) var(--spacing-page);
+}
+
+/* 分割线 */
+.divider {
+  height: 1rpx;
+  background-color: var(--color-divider);
+  margin: var(--spacing-list) 0;
+}

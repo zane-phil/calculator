@@ -1,0 +1,84 @@
+/* 设置页面样式 */
+.settings-page {
+  height: 100vh;
+  background-color: #F7F7F7;
+  padding: 24rpx 0;
+}
+
+.section {
+  margin-bottom: 32rpx;
+}
+
+.section-title {
+  display: block;
+  font-size: var(--font-caption);
+  color: var(--color-text-secondary);
+  padding: 8rpx 32rpx 12rpx;
+  text-transform: uppercase;
+}
+
+.setting-card {
+  background-color: #FFFFFF;
+  margin: 0 32rpx;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.setting-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx;
+  min-height: 88rpx;
+}
+
+.setting-item:active {
+  background-color: #F2F2F7;
+}
+
+.setting-label {
+  font-size: var(--font-body);
+  color: var(--color-text-primary);
+}
+
+.setting-label-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 16rpx;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.setting-value {
+  font-size: var(--font-body);
+  color: var(--color-text-secondary);
+}
+
+.setting-arrow {
+  font-size: 36rpx;
+  color: var(--color-divider);
+}
+
+.setting-divider {
+  height: 1rpx;
+  background-color: #F2F2F7;
+  margin-left: 24rpx;
+}
+
+.decimal-slider {
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 48rpx;
+}
+
+.footer-text {
+  font-size: var(--font-small);
+  color: var(--color-text-secondary);
+}

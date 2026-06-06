@@ -1,0 +1,70 @@
+/* result-card 组件样式 */
+.result-card {
+  background-color: var(--color-card-light);
+  border-radius: var(--radius-card);
+  margin: var(--spacing-block) var(--spacing-page);
+  padding: var(--spacing-block);
+  opacity: 0;
+  transform: translateY(20rpx);
+  transition: all 0.3s ease;
+}
+
+.result-card-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-header {
+  margin-bottom: 16rpx;
+}
+
+.card-title {
+  font-size: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.result-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+}
+
+.result-row:not(:last-child) {
+  border-bottom: 1rpx solid var(--color-divider);
+}
+
+.row-label {
+  font-size: var(--font-body);
+  color: var(--color-text-secondary);
+}
+
+.row-value {
+  font-size: var(--font-body);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.row-highlight {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 36rpx;
+}
+
+.card-footer {
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid var(--color-divider);
+}
+
+.footer-text {
+  font-size: var(--font-caption);
+  color: var(--color-text-secondary);
+}

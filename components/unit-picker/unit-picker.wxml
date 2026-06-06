@@ -1,0 +1,26 @@
+<!-- unit-picker 组件 - 底部选择器 -->
+<view class="picker-mask {{visible ? 'picker-mask-show' : ''}}" bindtap="onMaskTap" catchtouchmove="noop">
+  <view class="picker-panel {{visible ? 'picker-panel-show' : ''}}" catchtap="noop">
+    <view class="picker-header">
+      <text class="picker-title">{{title}}</text>
+      <view class="picker-close" bindtap="onClose">
+        <text class="picker-close-text">✕</text>
+      </view>
+    </view>
+
+    <scroll-view class="picker-body" scroll-y enhanced show-scrollbar="{{true}}">
+      <view
+        class="picker-item {{selected === item.key ? 'picker-item-selected' : ''}}"
+        wx:for="{{options}}"
+        wx:key="key"
+        data-index="{{index}}"
+        bindtap="onSelect"
+      >
+        <text class="picker-item-flag" wx:if="{{item.flag}}">{{item.flag}}</text>
+        <text class="picker-item-name">{{item.name}}</text>
+        <text class="picker-item-code">{{item.code || item.symbol || ''}}</text>
+        <text class="picker-check" wx:if="{{selected === item.key}}">✓</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>
