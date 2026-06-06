@@ -102,7 +102,7 @@ const storage = {
   },
 
   /**
-   * 获取缓存的汇率数据
+   * 获取缓存的汇率数据 
    */
   getCurrencyRates() {
     try {
