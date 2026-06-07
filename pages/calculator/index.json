@@ -1,7 +1,7 @@
 {
   "usingComponents": {
-    "numpad": "/components/numpad/numpad",
-    "display-area": "/components/display/display"
-  },
-  "navigationBarTitleText": "计算器"
+    "top-nav": "/components/top-nav/top-nav",
+    "numpad": "./components/numpad/numpad",
+    "display-area": "./components/display/display"
+  }
 }

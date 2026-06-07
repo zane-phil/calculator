@@ -38,7 +38,7 @@ Page({
     }
 
     // 按过运算符后，开始新输入
-    if (shouldResetInput && result !== '0') {
+    if (shouldResetInput) {
       expression = expression + digit;
       result = digit;
       this.setData({
@@ -247,30 +247,4 @@ Page({
     });
   },
 
-  /**
-   * 跳转到科学计算器
-   */
-  goToScientific() {
-    wx.navigateTo({
-      url: '/pages/scientific/index'
-    });
-  },
-
-  /**
-   * 跳转到历史记录
-   */
-  goToHistory() {
-    wx.navigateTo({
-      url: '/pages/history/index'
-    });
-  },
-
-  /**
-   * 跳转到设置
-   */
-  goToSettings() {
-    wx.navigateTo({
-      url: '/pages/settings/index'
-    });
-  }
 });

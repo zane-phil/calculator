@@ -1,0 +1,40 @@
+<!-- 历史记录页面 -->
+<view class="history-page">
+  <top-nav mode="back" title="历史记录" />
+  <!-- 顶部操作栏 -->
+  <view class="history-header" wx:if="{{!isEmpty}}">
+    <text class="header-count">共 {{history.length}} 条记录</text>
+    <view class="clear-btn" bindtap="onClearAll">
+      <text class="clear-text">清空</text>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{isEmpty}}">
+    <text class="empty-icon">📝</text>
+    <text class="empty-title">暂无计算记录</text>
+    <text class="empty-desc">开始计算后，记录会自动保存在这里</text>
+  </view>
+
+  <!-- 历史列表 -->
+  <scroll-view class="history-list" scroll-y enhanced show-scrollbar="{{false}}" wx:else>
+    <view
+      class="history-item"
+      wx:for="{{history}}"
+      wx:key="timestamp"
+      data-index="{{index}}"
+      bindtap="onItemTap"
+    >
+      <view class="item-body">
+        <text class="item-expression">{{item.expression}}</text>
+        <text class="item-result">= {{item.result}}</text>
+      </view>
+      <view class="item-footer">
+        <text class="item-time">{{item.timeStr}}</text>
+        <view class="item-delete" data-index="{{index}}" catchtap="onDeleteItem">
+          <text class="delete-icon">🗑</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

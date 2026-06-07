@@ -1,0 +1,29 @@
+<!-- 顶部导航栏 -->
+<view class="top-nav" style="padding-top: {{statusBarHeight}}px;">
+
+  <!-- 模式一：计算 | 换算 Tabs -->
+  <view class="nav-tabs" wx:if="{{mode === 'tabs'}}">
+    <view
+      class="nav-tab {{active === 'calc' ? 'nav-tab-active' : ''}}"
+      bindtap="onTapCalc"
+    >
+      <text class="nav-label">计算</text>
+    </view>
+    <view
+      class="nav-tab {{active === 'convert' ? 'nav-tab-active' : ''}}"
+      bindtap="onTapConvert"
+    >
+      <text class="nav-label">换算</text>
+    </view>
+  </view>
+
+  <!-- 模式二：返回按钮 + 标题 -->
+  <view class="nav-back" wx:if="{{mode === 'back'}}">
+    <view class="back-btn" bindtap="onBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <text class="back-title">{{title}}</text>
+    <view class="back-placeholder"></view>
+  </view>
+
+</view>

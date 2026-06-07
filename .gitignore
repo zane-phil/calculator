@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# WeChat MiniProgram npm build output
+miniprogram_npm/
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*

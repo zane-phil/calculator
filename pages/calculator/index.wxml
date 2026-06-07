@@ -1,14 +1,7 @@
-<!-- 基础计算器页面 -->
+<!-- 计算器页面 -->
 <view class="calc-page">
-  <!-- 顶部操作栏 -->
-  <view class="calc-header">
-    <view class="header-left" bindtap="goToHistory">
-      <text class="header-icon">🕐</text>
-    </view>
-    <view class="header-right" bindtap="goToScientific">
-      <text class="header-link">科学</text>
-    </view>
-  </view>
+  <!-- 顶部导航（计算 | 换算） -->
+  <top-nav active="calc" />
 
   <!-- 显示区域 -->
   <display-area

@@ -1,0 +1,79 @@
+<!-- 汇率换算页面 -->
+<view class="currency-page">
+  <top-nav mode="back" title="汇率换算" />
+
+  <!-- 换算卡片区域 -->
+  <view class="convert-area">
+    <!-- 源货币 -->
+    <view class="currency-card source-card" bindtap="onSourcePicker">
+      <view class="card-header">
+        <text class="currency-flag">{{sourceInfo.flag}}</text>
+        <text class="currency-name">{{sourceInfo.name}}</text>
+        <text class="currency-code">{{sourceCurrency}}</text>
+        <text class="arrow-down">▼</text>
+      </view>
+      <view class="card-amount">
+        <text class="amount-text">{{sourceAmount}}</text>
+      </view>
+    </view>
+
+    <!-- 交换按钮 -->
+    <view class="swap-bar">
+      <view class="swap-btn" bindtap="onSwap">
+        <text class="swap-icon">⇅</text>
+      </view>
+    </view>
+
+    <!-- 目标货币 -->
+    <view class="currency-card target-card" bindtap="onTargetPicker">
+      <view class="card-header">
+        <text class="currency-flag">{{targetInfo.flag}}</text>
+        <text class="currency-name">{{targetInfo.name}}</text>
+        <text class="currency-code">{{targetCurrency}}</text>
+        <text class="arrow-down">▼</text>
+      </view>
+      <view class="card-amount">
+        <text class="amount-text">{{targetAmount}}</text>
+      </view>
+    </view>
+
+    <!-- 更新时间 -->
+    <view class="update-info" wx:if="{{lastUpdate}}">
+      <text class="update-text">数据更新于: {{lastUpdate}}</text>
+    </view>
+  </view>
+
+  <!-- 数字键盘 -->
+  <view class="numpad-area">
+    <view class="numpad-row">
+      <view class="numpad-key" data-digit="7" bindtap="onDigitTap"><text>7</text></view>
+      <view class="numpad-key" data-digit="8" bindtap="onDigitTap"><text>8</text></view>
+      <view class="numpad-key" data-digit="9" bindtap="onDigitTap"><text>9</text></view>
+    </view>
+    <view class="numpad-row">
+      <view class="numpad-key" data-digit="4" bindtap="onDigitTap"><text>4</text></view>
+      <view class="numpad-key" data-digit="5" bindtap="onDigitTap"><text>5</text></view>
+      <view class="numpad-key" data-digit="6" bindtap="onDigitTap"><text>6</text></view>
+    </view>
+    <view class="numpad-row">
+      <view class="numpad-key" data-digit="1" bindtap="onDigitTap"><text>1</text></view>
+      <view class="numpad-key" data-digit="2" bindtap="onDigitTap"><text>2</text></view>
+      <view class="numpad-key" data-digit="3" bindtap="onDigitTap"><text>3</text></view>
+    </view>
+    <view class="numpad-row">
+      <view class="numpad-key numpad-func" bindtap="onClear"><text>C</text></view>
+      <view class="numpad-key" data-digit="0" bindtap="onDigitTap"><text>0</text></view>
+      <view class="numpad-key numpad-func" bindtap="onDecimalTap"><text>.</text></view>
+    </view>
+  </view>
+
+  <!-- 币种选择器 -->
+  <unit-picker
+    visible="{{showPicker}}"
+    title="{{pickerTitle}}"
+    options="{{pickerOptions}}"
+    selected="{{pickerSelected}}"
+    bind:select="onPickerSelect"
+    bind:close="onPickerClose"
+  />
+</view>

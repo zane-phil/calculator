@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "unit-picker": "/components/unit-picker/unit-picker"
-  },
-  "navigationBarTitleText": "单位换算"
-}

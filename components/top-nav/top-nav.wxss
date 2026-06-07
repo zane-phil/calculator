@@ -1,0 +1,81 @@
+.top-nav {
+  background-color: #F7F7F7;
+}
+
+/* ========== Tabs 模式 ========== */
+.nav-tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 88rpx;
+  gap: 48rpx;
+}
+
+.nav-tab {
+  padding: 12rpx 0;
+  position: relative;
+}
+
+.nav-label {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #8E8E93;
+  transition: color 0.2s;
+}
+
+.nav-tab-active .nav-label {
+  color: #1C1C1E;
+  font-weight: 700;
+}
+
+.nav-tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 6rpx;
+  border-radius: 3rpx;
+  background-color: #FF6900;
+}
+
+/* ========== Back 模式 ========== */
+.nav-back {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 88rpx;
+  padding: 0 16rpx;
+}
+
+.back-btn {
+  width: 72rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.back-icon {
+  font-size: 56rpx;
+  color: #FF6900;
+  font-weight: 300;
+  line-height: 1;
+  margin-top: -4rpx;
+}
+
+.back-title {
+  flex: 1;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #1C1C1E;
+}
+
+.back-placeholder {
+  width: 72rpx;
+  flex-shrink: 0;
+}
