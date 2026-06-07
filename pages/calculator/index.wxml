@@ -12,14 +12,19 @@
 
   <!-- 数字键盘 -->
   <numpad
-    layout="basic"
+    layout="{{layout}}"
+    hasInput="{{expression.length > 0}}"
     bind:digit="onDigit"
     bind:operator="onOperator"
+    bind:function="onFunction"
     bind:clear="onClear"
     bind:backspace="onBackspace"
     bind:equals="onEquals"
     bind:percent="onPercent"
-    bind:negate="onNegate"
+    bind:paren="onParen"
+    bind:constant="onConstant"
+    bind:toggleLayout="onToggleLayout"
+    bind:degChange="onDegChange"
     bind:decimal="onDecimal"
   />
 </view>

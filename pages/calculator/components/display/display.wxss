@@ -3,8 +3,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 24rpx 32rpx;
-  min-height: 200rpx;
+  padding: 32rpx 36rpx;
+  min-height: 280rpx;
   background-color: #F7F7F7;
 }
 
@@ -15,11 +15,11 @@
 
 .expression-text {
   display: block;
-  font-size: var(--font-h2);
-  color: var(--color-text-secondary);
+  font-size: 40rpx;
+  color: #8E8E93;
   text-align: right;
-  min-height: 50rpx;
-  line-height: 50rpx;
+  min-height: 56rpx;
+  line-height: 56rpx;
   word-break: keep-all;
 }
 
@@ -27,23 +27,24 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  margin-top: 8rpx;
+  margin-top: 12rpx;
 }
 
 .result-text {
-  font-size: var(--font-h1);
-  font-weight: 500;
-  color: var(--color-text-primary);
+  font-size: 80rpx;
+  font-weight: 300;
+  color: #1C1C1E;
   text-align: right;
-  line-height: 90rpx;
+  line-height: 96rpx;
   word-break: break-all;
+  letter-spacing: -1rpx;
 }
 
 .result-error {
-  color: var(--color-error);
+  color: #FF3B30;
   font-size: 56rpx;
 }
 
 .display-error .result-text {
-  color: var(--color-error);
+  color: #FF3B30;
 }

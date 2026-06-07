@@ -29,18 +29,6 @@
   font-weight: 700;
 }
 
-.nav-tab-active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40rpx;
-  height: 6rpx;
-  border-radius: 3rpx;
-  background-color: #FF6900;
-}
-
 /* ========== Back 模式 ========== */
 .nav-back {
   display: flex;

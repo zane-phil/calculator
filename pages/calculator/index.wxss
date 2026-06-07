@@ -6,12 +6,10 @@
   background-color: #F7F7F7;
 }
 
-/* 显示区域占剩余空间 */
 .calc-page > display-area {
   flex: 1;
 }
 
-/* 键盘区域 */
 .calc-page > numpad {
   flex-shrink: 0;
 }

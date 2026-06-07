@@ -9,6 +9,7 @@ const app = getApp();
 
 Page({
   data: {
+    layout: 'basic',           // 'basic' | 'scientific'
     expression: '',
     result: '0',
     error: false,
@@ -245,6 +246,86 @@ Page({
       result,
       shouldResetInput: false
     });
+  },
+
+  /**
+   * 科学函数键（sin, cos, tan, log, ln 等）
+   * 追加函数名和左括号到表达式
+   */
+  onFunction(e) {
+    const funcName = e.detail.value; // 如 'sin', 'cos', 'log'
+    let { expression, result, shouldResetInput, error } = this.data;
+
+    if (error) { this.clearAll(); expression = ''; result = '0'; shouldResetInput = false; }
+
+    if (shouldResetInput) {
+      expression = expression + funcName + '(';
+      result = funcName;
+    } else if (result === '0' && !expression) {
+      expression = funcName + '(';
+      result = funcName;
+    } else {
+      expression = expression + funcName + '(';
+      result = funcName;
+    }
+
+    this.setData({ expression, result, error: false, shouldResetInput: false });
+  },
+
+  /**
+   * 括号键
+   */
+  onParen(e) {
+    const paren = e.detail.value; // '(' 或 ')'
+    let { expression, result, shouldResetInput, error } = this.data;
+
+    if (error) { this.clearAll(); expression = ''; result = '0'; shouldResetInput = false; }
+
+    if (shouldResetInput) {
+      expression = expression + paren;
+    } else if (result === '0' && !expression) {
+      expression = paren;
+    } else {
+      expression = expression + paren;
+    }
+    result = paren;
+
+    this.setData({ expression, result, error: false, shouldResetInput: false });
+  },
+
+  /**
+   * 常数键（π, e）
+   */
+  onConstant(e) {
+    const constant = e.detail.value; // 'π' 或 'e'
+    let { expression, result, shouldResetInput, error } = this.data;
+
+    if (error) { this.clearAll(); expression = ''; result = '0'; shouldResetInput = false; }
+
+    if (shouldResetInput || (result === '0' && !expression)) {
+      expression = expression + constant;
+      result = constant;
+    } else {
+      expression = expression + constant;
+      result = constant;
+    }
+
+    this.setData({ expression, result, error: false, shouldResetInput: false });
+  },
+
+  /**
+   * 切换键盘布局（基础 ↔ 科学）
+   */
+  onToggleLayout() {
+    const newLayout = this.data.layout === 'basic' ? 'scientific' : 'basic';
+    this.setData({ layout: newLayout });
+  },
+
+  /**
+   * 科学模式角度切换（RAD ↔ DEG）
+   */
+  onDegChange(e) {
+    this.engine.setDegMode(e.detail.degMode);
   },
 
 });

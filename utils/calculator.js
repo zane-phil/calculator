@@ -19,6 +19,7 @@ class CalculatorEngine {
     '/':  { prec: 2, assoc: 'L', fn: (a, b) => a / b },
     '%':  { prec: 2, assoc: 'L', fn: (a, b) => a * (b / 100) },
     '^':  { prec: 3, assoc: 'R', fn: (a, b) => Math.pow(a, b) },
+    '√':  { prec: 3, assoc: 'R', fn: (a, b) => Math.pow(b, 1 / a) },  // a√b = b^(1/a)
   };
 
   static FUNCTIONS = {
@@ -29,11 +30,13 @@ class CalculatorEngine {
     'acos':      { fn: (a) => Math.acos(a) },
     'atan':      { fn: (a) => Math.atan(a) },
     'log':       { fn: (a) => Math.log10(a) },
+    'lg':        { fn: (a) => Math.log10(a) },      // 同 log，常用对数
     'ln':        { fn: (a) => Math.log(a) },
     'sqrt':      { fn: (a) => Math.sqrt(a) },
     'cbrt':      { fn: (a) => Math.cbrt(a) },
     'exp':       { fn: (a) => Math.exp(a) },
     'abs':       { fn: (a) => Math.abs(a) },
+    'recip':     { fn: (a) => 1 / a },              // 倒数 1/x
     'factorial': { fn: (a) => CalculatorEngine.factorial(a) },
     '_neg':      { fn: (a) => -a },
   };
@@ -178,15 +181,28 @@ class CalculatorEngine {
         .replace(/sin⁻¹/g, 'asin')
         .replace(/cos⁻¹/g, 'acos')
         .replace(/tan⁻¹/g, 'atan')
+        // 根号：√x→sqrt, ³√x→cbrt, y√x→√(二元算符)
+        .replace(/³√x/g, 'cbrt')
         .replace(/³√/g, 'cbrt')
+        .replace(/√x/g, 'sqrt')
         .replace(/√/g, 'sqrt')
+        // 指数：eˣ→exp, 2ˣ→2^
         .replace(/10ˣ/g, '10^')
         .replace(/eˣ/g, 'exp')
+        .replace(/2ˣ/g, '2^')
+        // 幂：x²→^2, x³→^3, xʸ→^
         .replace(/x²/g, '^2')
         .replace(/x³/g, '^3')
         .replace(/xʸ/g, '^')
+        // 倒数：1/x→recip(
+        .replace(/1\/x/g, 'recip')
+        // 阶乘：n! → factorial(n)
         .replace(/(\d+|\))\s*!/g, 'factorial($1)')
-        .replace(/π/g, 'pi');
+        .replace(/x!/g, 'factorial')
+        // 常数
+        .replace(/π/g, 'pi')
+        // log 别名
+        .replace(/\blg\b/g, 'log');
 
       // 隐式乘法
       expr = expr.replace(/(\d)(pi|e)/g, '$1*$2');
@@ -194,6 +210,8 @@ class CalculatorEngine {
       expr = expr.replace(/\)(\d)/g, ')*$1');
       expr = expr.replace(/(pi|e)(\d)/g, '$1*$2');
       expr = expr.replace(/\)\(/g, ')*(');
+      expr = expr.replace(/(\d)([a-z])/g, '$1*$2');   // 2sin → 2*sin
+      expr = expr.replace(/\)([a-z])/g, ')*$1');      // )sin → )*sin
 
       // 百分号
       expr = expr.replace(/%/g, '/100');

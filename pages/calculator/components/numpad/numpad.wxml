@@ -1,6 +1,7 @@
 <!-- numpad 组件 -->
 <view class="numpad numpad-{{layout}}">
-  <!-- 基础模式 (5行 × 4列) -->
+
+  <!-- ==================== 基础模式 (5行 × 4列) ==================== -->
   <block wx:if="{{layout === 'basic'}}">
     <view class="key-row" wx:for="{{basicKeys}}" wx:key="index">
       <view
@@ -11,12 +12,18 @@
         hover-class="key-pressed"
         bindtap="onKeyTap"
       >
-        <text class="key-label">{{key.label}}</text>
+        <block wx:if="{{key.type === 'toggleLayout'}}">
+          <image class="key-icon" src="/assets/negate.svg" />
+        </block>
+        <block wx:elif="{{key.type === 'backspace'}}">
+          <image class="key-icon key-icon-backspace" src="/assets/backspace.svg" />
+        </block>
+        <text wx:else class="key-label">{{key.label}}</text>
       </view>
     </view>
   </block>
 
-  <!-- 科学模式 (7行 × 6列) -->
+  <!-- ==================== 科学模式 (7行 × 5列) ==================== -->
   <block wx:if="{{layout === 'scientific'}}">
     <view class="key-row" wx:for="{{scientificKeys}}" wx:key="index">
       <view
@@ -27,7 +34,13 @@
         hover-class="key-pressed"
         bindtap="onKeyTap"
       >
-        <text class="key-label key-label-small">{{key.label}}</text>
+        <block wx:if="{{key.type === 'toggleLayout'}}">
+          <image class="key-icon" src="/assets/negate.svg" />
+        </block>
+        <block wx:elif="{{key.type === 'backspace'}}">
+          <image class="key-icon key-icon-backspace" src="/assets/backspace.svg" />
+        </block>
+        <text wx:else class="key-label key-label-small">{{key.label}}</text>
       </view>
     </view>
   </block>
