@@ -20,11 +20,13 @@ Page({
     commonRefs: []        // 常用换算参考
   },
 
-  onLoad() {
+  onLoad(options) {
     const categories = converter.getCategories();
     this.setData({ categories });
 
-    this.loadCategory('length');
+    // 支持从换算入口直接跳转到指定类别
+    const cat = options.cat || 'length';
+    this.loadCategory(cat);
   },
 
   /**

@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: 32rpx 36rpx;
-  min-height: 280rpx;
+  min-height: 180rpx;
   background-color: #F7F7F7;
 }
 

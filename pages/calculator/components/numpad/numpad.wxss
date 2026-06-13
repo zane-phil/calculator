@@ -2,7 +2,7 @@
 .numpad {
   display: flex;
   flex-direction: column;
-  padding: 12rpx 16rpx 42rpx;
+  padding: 12rpx 16rpx 20rpx;
   gap: 18rpx;
   background-color: #F7F7F7;
 }

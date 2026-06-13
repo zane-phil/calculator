@@ -1,13 +1,16 @@
 {
   "pages": [
     "pages/calculator/index",
-    "pages/convert/index",
     "pages/convert/currency/index",
     "pages/convert/unit/index",
     "pages/convert/tax/index",
     "pages/convert/mortgage/index",
     "pages/convert/history/index",
-    "pages/convert/settings/index"
+    "pages/convert/settings/index",
+    "pages/convert/relation/index",
+    "pages/convert/capitalize/index",
+    "pages/convert/base/index",
+    "pages/convert/bmi/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#F7F7F7",

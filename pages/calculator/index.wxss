@@ -6,10 +6,51 @@
   background-color: #F7F7F7;
 }
 
-.calc-page > display-area {
+/* 计算 Tab 布局 */
+display-area {
   flex: 1;
 }
 
-.calc-page > numpad {
+numpad {
   flex-shrink: 0;
+}
+
+/* ====== 换算 Tab 3列网格样式 ====== */
+.tool-grid {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 24rpx;
+  overflow-y: auto;
+  align-content: flex-start;
+}
+
+.tool-item {
+  width: calc(33.33% - 24rpx);
+  margin: 24rpx 12rpx 0 12rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28rpx 8rpx 20rpx;
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+}
+
+.tool-icon-box {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16rpx;
+}
+
+.tool-icon-text {
+  font-size: 48rpx;
+}
+
+.tool-label {
+  font-size: 24rpx;
+  color: #333333;
+  text-align: center;
 }

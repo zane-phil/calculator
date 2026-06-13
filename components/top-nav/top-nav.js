@@ -36,12 +36,12 @@ Component({
   methods: {
     onTapCalc() {
       if (this.data.active === 'calc') return;
-      wx.redirectTo({ url: '/pages/calculator/index' });
+      this.triggerEvent('switchTab', { tab: 'calc' });
     },
 
     onTapConvert() {
       if (this.data.active === 'convert') return;
-      wx.redirectTo({ url: '/pages/convert/index' });
+      this.triggerEvent('switchTab', { tab: 'convert' });
     },
 
     onBack() {

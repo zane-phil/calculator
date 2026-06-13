@@ -1,30 +1,52 @@
-<!-- 计算器页面 -->
+<!-- 计算器页面（含计算 & 换算两个Tab） -->
 <view class="calc-page">
-  <!-- 顶部导航（计算 | 换算） -->
-  <top-nav active="calc" />
 
-  <!-- 显示区域 -->
-  <display-area
-    expression="{{expression}}"
-    result="{{result}}"
-    error="{{error}}"
-  />
+  <!-- 计算 Tab -->
+  <block wx:if="{{currentTab === 'calc'}}">
+    <top-nav active="calc" bind:switchTab="onSwitchTab" />
 
-  <!-- 数字键盘 -->
-  <numpad
-    layout="{{layout}}"
-    hasInput="{{expression.length > 0}}"
-    bind:digit="onDigit"
-    bind:operator="onOperator"
-    bind:function="onFunction"
-    bind:clear="onClear"
-    bind:backspace="onBackspace"
-    bind:equals="onEquals"
-    bind:percent="onPercent"
-    bind:paren="onParen"
-    bind:constant="onConstant"
-    bind:toggleLayout="onToggleLayout"
-    bind:degChange="onDegChange"
-    bind:decimal="onDecimal"
-  />
+    <display-area
+      expression="{{expression}}"
+      result="{{result}}"
+      error="{{error}}"
+    />
+
+    <numpad
+      layout="{{layout}}"
+      hasInput="{{expression.length > 0}}"
+      bind:digit="onDigit"
+      bind:operator="onOperator"
+      bind:function="onFunction"
+      bind:clear="onClear"
+      bind:backspace="onBackspace"
+      bind:equals="onEquals"
+      bind:percent="onPercent"
+      bind:paren="onParen"
+      bind:constant="onConstant"
+      bind:toggleLayout="onToggleLayout"
+      bind:degChange="onDegChange"
+      bind:decimal="onDecimal"
+    />
+  </block>
+
+  <!-- 换算 Tab -->
+  <block wx:if="{{currentTab === 'convert'}}">
+    <top-nav active="convert" bind:switchTab="onSwitchTab" />
+
+    <view class="tool-grid">
+      <view
+        class="tool-item"
+        wx:for="{{tools}}"
+        wx:key="key"
+        data-url="{{item.url}}"
+        bindtap="onToolTap"
+      >
+        <view class="tool-icon-box">
+          <text class="tool-icon-text">{{item.icon}}</text>
+        </view>
+        <text class="tool-label">{{item.name}}</text>
+      </view>
+    </view>
+  </block>
+
 </view>

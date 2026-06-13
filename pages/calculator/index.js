@@ -9,18 +9,50 @@ const app = getApp();
 
 Page({
   data: {
+    currentTab: 'calc',        // 'calc' | 'convert'
     layout: 'basic',           // 'basic' | 'scientific'
     expression: '',
     result: '0',
     error: false,
     shouldResetInput: false,  // 按下运算符后，下一个数字重置输入
     lastResult: null,          // 上次计算结果
-    lastOperator: null         // 上次按的运算符
+    lastOperator: null,        // 上次按的运算符
+    tools: [
+      { key: 'currency',   name: '汇率转换', icon: '💱', url: '/pages/convert/currency/index' },
+      { key: 'length',     name: '长度转换', icon: '📏', url: '/pages/convert/unit/index?cat=length' },
+      { key: 'weight',     name: '重量转换', icon: '⚖️', url: '/pages/convert/unit/index?cat=weight' },
+      { key: 'area',       name: '面积转换', icon: '📐', url: '/pages/convert/unit/index?cat=area' },
+      { key: 'tax',        name: '个税计算', icon: '🧾', url: '/pages/convert/tax/index' },
+      { key: 'mortgage',   name: '房贷计算', icon: '🏠', url: '/pages/convert/mortgage/index' },
+      { key: 'relation',   name: '称呼计算', icon: '👥', url: '/pages/convert/relation/index' },
+      { key: 'capitalize', name: '大写数字', icon: '🔤', url: '/pages/convert/capitalize/index' },
+      { key: 'time',       name: '时间转换', icon: '🕐', url: '/pages/convert/unit/index?cat=time' },
+      { key: 'volume',     name: '体积转换', icon: '🧊', url: '/pages/convert/unit/index?cat=volume' },
+      { key: 'base',       name: '进制转换', icon: '#', url: '/pages/convert/base/index' },
+      { key: 'temperature',name: '温度转换', icon: '🌡️', url: '/pages/convert/unit/index?cat=temperature' },
+      { key: 'speed',      name: '速度转换', icon: '⏱️', url: '/pages/convert/unit/index?cat=speed' },
+      { key: 'bmi',        name: 'BMI计算',  icon: '⚡', url: '/pages/convert/bmi/index' }
+    ]
   },
 
   onLoad() {
     this.engine = new CalculatorEngine();
     this.engine.degMode = true;
+  },
+
+  /**
+   * 切换顶部 Tab（计算 ↔ 换算）
+   */
+  onSwitchTab(e) {
+    this.setData({ currentTab: e.detail.tab });
+  },
+
+  /**
+   * 点击换算工具入口
+   */
+  onToolTap(e) {
+    const { url } = e.currentTarget.dataset;
+    wx.navigateTo({ url });
   },
 
   /**
