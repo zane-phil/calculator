@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/calculator/index",
+    "pages/index/index",
     "pages/convert/currency/index",
     "pages/convert/unit/index",
     "pages/convert/tax/index",
@@ -17,9 +17,9 @@
     "navigationBarTitleText": "",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#F7F7F7",
-    "navigationStyle": "custom"
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": false,
+    "disableScroll": true
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
-}
+  "sitemapLocation": "sitemap.json"}

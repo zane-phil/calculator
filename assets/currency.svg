@@ -1,0 +1,14 @@
+<svg viewBox="0 0 24 24" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="coin-gap-mask">
+      <rect width="24" height="24" fill="white" />
+      <circle cx="10" cy="13" r="8.5" fill="black" />
+    </mask>
+    <mask id="yen-mask">
+      <rect width="24" height="24" fill="white" />
+      <path fill="black" d="M 6.5 8 L 8.2 8 L 10 10.8 L 11.8 8 L 13.5 8 L 10.8 12.2 V 13 H 13.5 V 14.2 H 10.8 V 15.5 H 13.5 V 16.7 H 10.8 V 18 H 9.2 V 16.7 H 6.5 V 15.5 H 9.2 V 14.2 H 6.5 V 13 H 9.2 V 12.2 Z" />
+    </mask>
+  </defs>
+  <circle cx="15" cy="8.5" r="6" fill="#333333" mask="url(#coin-gap-mask)" />
+  <circle cx="10" cy="13" r="7" fill="#333333" mask="url(#yen-mask)" />
+</svg>

@@ -1,0 +1,17 @@
+<svg viewBox="0 0 24 24" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="relatives-gap-mask">
+      <rect width="24" height="24" fill="white" />
+      <circle cx="8.5" cy="10" r="3.5" fill="black" />
+      <path d="M 8.5 13.5 C 5 13.5 2 15.5 2 19 V 21 H 15 V 19 C 15 15.5 12 13.5 8.5 13.5 Z" fill="black" stroke="black" stroke-width="1.5" />
+    </mask>
+  </defs>
+  <g fill="#333333" mask="url(#relatives-gap-mask)">
+    <circle cx="15.5" cy="11.5" r="2.5" />
+    <path d="M 15.5 14.5 C 12.5 14.5 10 16.2 10 19 V 21 H 21 V 19 C 21 16.2 18.5 14.5 15.5 14.5 Z" />
+  </g>
+  <g fill="#333333">
+    <circle cx="8.5" cy="10" r="2.5" />
+    <path d="M 8.5 13.5 C 5.5 13.5 3 15.2 3 18 V 20 H 14 V 18 C 14 15.2 11.5 13.5 8.5 13.5 Z" />
+  </g>
+</svg>

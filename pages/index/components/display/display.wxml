@@ -1,0 +1,33 @@
+<!-- display 组件 — 上:历史区 / 下:交互区 (flex 1:1 等分) -->
+<view class="display {{error ? 'display-error' : ''}}">
+
+  <!-- ====== 上：历史记录展示区 ====== -->
+  <view class="history-area">
+    <text wx:if="{{historyText}}" class="history-text">{{historyText}}</text>
+  </view>
+
+  <!-- ====== 下：当前交互区 ====== -->
+  <view class="interact-area">
+
+    <!-- 第1行：输入表达式 + 光标 -->
+    <scroll-view
+      class="expr-scroll"
+      scroll-x
+      scroll-left="{{scrollLeft}}"
+      enhanced
+      show-scrollbar="{{false}}"
+    >
+      <text class="expr-text {{showResult ? 'expr-small' : ''}}">
+        {{exprDisplay || '0'}}<text wx:if="{{!showResult}}" class="cursor {{cursorVisible ? 'cursor-blink' : ''}}">{{exprDisplay ? '' : '|'}}</text>
+      </text>
+    </scroll-view>
+
+    <!-- 第2行：预览/结果（有内容才展示） -->
+    <view class="result-line" wx:if="{{previewText || resultDisplay}}">
+      <text class="preview-text {{showResult ? 'preview-hide' : ''}}">{{previewText}}</text>
+      <text class="result-text {{showResult ? '' : 'result-hide'}}">= {{resultDisplay}}</text>
+    </view>
+
+  </view>
+
+</view>

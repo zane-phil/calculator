@@ -32,8 +32,6 @@ numpad {
   flex-direction: column;
   align-items: center;
   padding: 28rpx 8rpx 20rpx;
-  background-color: #FFFFFF;
-  border-radius: 16rpx;
 }
 
 .tool-icon-box {
@@ -47,6 +45,11 @@ numpad {
 
 .tool-icon-text {
   font-size: 48rpx;
+}
+
+.tool-icon-svg {
+  width: 48rpx;
+  height: 48rpx;
 }
 
 .tool-label {

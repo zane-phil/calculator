@@ -1,19 +1,20 @@
-<!-- 计算器页面（含计算 & 换算两个Tab） -->
 <view class="calc-page">
 
-  <!-- 计算 Tab -->
-  <block wx:if="{{currentTab === 'calc'}}">
-    <top-nav active="calc" bind:switchTab="onSwitchTab" />
+  <top-nav active="{{currentTab}}" bind:switchTab="onSwitchTab" />
 
+  <block wx:if="{{currentTab === 'calc'}}">
     <display-area
-      expression="{{expression}}"
-      result="{{result}}"
+      exprDisplay="{{exprDisplay}}"
+      previewText="{{previewText}}"
+      resultDisplay="{{resultDisplay}}"
+      historyText="{{historyText}}"
+      showResult="{{showResult}}"
       error="{{error}}"
     />
 
     <numpad
       layout="{{layout}}"
-      hasInput="{{expression.length > 0}}"
+      hasInput="{{exprDisplay.length > 0}}"
       bind:digit="onDigit"
       bind:operator="onOperator"
       bind:function="onFunction"
@@ -29,10 +30,7 @@
     />
   </block>
 
-  <!-- 换算 Tab -->
-  <block wx:if="{{currentTab === 'convert'}}">
-    <top-nav active="convert" bind:switchTab="onSwitchTab" />
-
+  <block wx:elif="{{currentTab === 'convert'}}">
     <view class="tool-grid">
       <view
         class="tool-item"
@@ -42,7 +40,8 @@
         bindtap="onToolTap"
       >
         <view class="tool-icon-box">
-          <text class="tool-icon-text">{{item.icon}}</text>
+          <image wx:if="{{item.iconType === 'svg'}}" class="tool-icon-svg" src="{{item.icon}}" />
+          <text wx:else class="tool-icon-text">{{item.icon}}</text>
         </view>
         <text class="tool-label">{{item.name}}</text>
       </view>

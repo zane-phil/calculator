@@ -1,0 +1,127 @@
+/* display 组件 — 固定高度，上下 1:1 等分（flex 约束，内容不能撑开） */
+.display {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 36rpx;
+  background-color: #F7F7F7;
+  overflow: hidden;
+}
+
+/* ====== 上：历史区（flex-1 等分 50%） ====== */
+.history-area {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-bottom: 8rpx;
+  overflow: hidden;
+}
+
+.history-text {
+  font-size: 32rpx;
+  color: #8E8E93;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* ====== 下：交互区（flex-1 等分 50%） ====== */
+.interact-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 4rpx;
+  overflow: hidden;
+}
+
+/* ---------- 交互区第1行：表达式 + 光标 ---------- */
+.expr-scroll {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.expr-text {
+  display: block;
+  font-size: 56rpx;
+  font-weight: 600;
+  color: #1C1C1E;
+  text-align: right;
+  line-height: 68rpx;
+  transition: font-size 0.2s ease, font-weight 0.2s ease, color 0.2s ease;
+}
+
+/* = 按下后表达式缩小变淡 */
+.expr-small {
+  font-size: 32rpx !important;
+  font-weight: 400 !important;
+  color: #8E8E93 !important;
+}
+
+/* 光标 */
+.cursor {
+  font-weight: 200;
+  color: #FF6900;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+.cursor-blink { opacity: 1; }
+
+/* ---------- 交互区第2行：预览 / 结果（绝对叠放，自适应高度） ---------- */
+.result-line {
+  position: relative;
+  min-height: 96rpx;
+  overflow: visible;
+}
+
+/* 实时预览（小字，= 之前） */
+.preview-text {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 36rpx;
+  font-weight: 400;
+  color: #8E8E93;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  transition: font-size 0.2s ease, font-weight 0.2s ease, opacity 0.2s ease;
+}
+
+.preview-hide {
+  opacity: 0;
+}
+
+/* = 后结果（大） */
+.result-text {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 80rpx;
+  font-weight: 600;
+  color: #1C1C1E;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  transition: font-size 0.2s ease, font-weight 0.2s ease, opacity 0.2s ease;
+}
+
+.result-hide {
+  font-size: 36rpx;
+  font-weight: 400;
+  color: #8E8E93;
+  opacity: 0;
+}
+
+.result-error {
+  color: #FF3B30;
+  font-size: 56rpx;
+}
+.display-error .result-text {
+  color: #FF3B30;
+}

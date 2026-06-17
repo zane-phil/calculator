@@ -1,0 +1,10 @@
+<svg viewBox="0 0 24 24" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="time-ring-mask">
+      <rect width="24" height="24" fill="white" />
+      <circle cx="12" cy="12" r="6.5" fill="black" />
+    </mask>
+  </defs>
+  <circle cx="12" cy="12" r="8.5" fill="#333333" mask="url(#time-ring-mask)" />
+  <path d="M 12 7.5 V 12 H 16.5" fill="none" stroke="#333333" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

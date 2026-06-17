@@ -1,0 +1,16 @@
+<svg viewBox="0 0 24 24" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="ruler-mask">
+      <rect width="24" height="24" fill="white" />
+      <rect x="8.5" y="6.5" width="6" height="1.5" fill="black" rx="0.75" />
+      <rect x="10" y="11.25" width="5" height="1.5" fill="black" rx="0.75" />
+      <rect x="8.5" y="16" width="6" height="1.5" fill="black" rx="0.75" />
+    </mask>
+  </defs>
+  <rect x="5" y="4" width="8" height="16" rx="2" fill="#333333" mask="url(#ruler-mask)" />
+  <g fill="#333333">
+    <rect x="15" y="4" width="4" height="1.5" rx="0.5" />
+    <rect x="16.25" y="4.5" width="1.5" height="15" />
+    <rect x="15" y="18.5" width="4" height="1.5" rx="0.5" />
+  </g>
+</svg>

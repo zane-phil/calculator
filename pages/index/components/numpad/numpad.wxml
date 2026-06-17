@@ -5,7 +5,7 @@
   <block wx:if="{{layout === 'basic'}}">
     <view class="key-row" wx:for="{{basicKeys}}" wx:key="index">
       <view
-        wx:for="{{item}}" wx:for-item="key" wx:key="label"
+        wx:for="{{item}}" wx:for-item="key" wx:key="index"
         class="key {{key.class}}"
         data-key="{{key}}"
         data-type="{{key.type}}"
@@ -27,7 +27,7 @@
   <block wx:if="{{layout === 'scientific'}}">
     <view class="key-row" wx:for="{{scientificKeys}}" wx:key="index">
       <view
-        wx:for="{{item}}" wx:for-item="key" wx:key="label"
+        wx:for="{{item}}" wx:for-item="key" wx:key="index"
         class="key key-small {{key.class}}"
         data-key="{{key}}"
         data-type="{{key.type}}"
