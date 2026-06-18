@@ -5,6 +5,7 @@
   padding: 12rpx 16rpx 20rpx;
   gap: 18rpx;
   background-color: #F7F7F7;
+  margin-bottom: 24px;
 }
 
 .key-row {

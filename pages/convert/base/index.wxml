@@ -1,4 +1,48 @@
 <view class="page-container">
   <top-nav mode="back" title="进制转换" />
-  <view class="placeholder"><text>⏳ 功能开发中</text></view>
+
+  <!-- 源进制选择 -->
+  <view class="base-tabs">
+    <view class="base-tab {{sourceBase === 2 ? 'tab-active' : ''}}" bindtap="onBaseTap" data-base="2">BIN</view>
+    <view class="base-tab {{sourceBase === 8 ? 'tab-active' : ''}}" bindtap="onBaseTap" data-base="8">OCT</view>
+    <view class="base-tab {{sourceBase === 10 ? 'tab-active' : ''}}" bindtap="onBaseTap" data-base="10">DEC</view>
+    <view class="base-tab {{sourceBase === 16 ? 'tab-active' : ''}}" bindtap="onBaseTap" data-base="16">HEX</view>
+  </view>
+
+  <!-- 显示区 -->
+  <view class="display-area">
+    <view class="input-display">
+      <text wx:if="{{input}}" class="input-text">{{input}}</text>
+      <text wx:else class="input-placeholder">输入数字</text>
+    </view>
+
+    <!-- 转换结果 -->
+    <view class="results" wx:if="{{results.length}}">
+      <view class="result-card {{item.active ? 'card-active' : ''}}" wx:for="{{results}}" wx:key="base">
+        <text class="card-label">{{item.label}}</text>
+        <text class="card-value">{{item.value || '—'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 十六进制键盘 -->
+  <view class="keyboard">
+    <view class="key-row">
+      <view class="key-btn" wx:for="{{['A','B','C','D']}}" wx:key="*this" bindtap="onDigitTap" data-digit="{{item}}">{{item}}</view>
+      <view class="key-btn key-func" wx:if="{{sourceBase !== 16}}" style="visibility:hidden;"></view>
+    </view>
+    <view class="key-row">
+      <view class="key-btn" wx:for="{{['E','F','0','1']}}" wx:key="*this" bindtap="onDigitTap" data-digit="{{item}}">{{item}}</view>
+    </view>
+    <view class="key-row">
+      <view class="key-btn" wx:for="{{['2','3','4','5']}}" wx:key="*this" bindtap="onDigitTap" data-digit="{{item}}">{{item}}</view>
+    </view>
+    <view class="key-row">
+      <view class="key-btn" wx:for="{{['6','7','8','9']}}" wx:key="*this" bindtap="onDigitTap" data-digit="{{item}}">{{item}}</view>
+    </view>
+    <view class="key-row">
+      <view class="key-btn key-func" bindtap="onBackspace">⌫</view>
+      <view class="key-btn key-clear" bindtap="onClear">AC</view>
+    </view>
+  </view>
 </view>

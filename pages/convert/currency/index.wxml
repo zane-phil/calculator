@@ -1,6 +1,5 @@
-<!-- 汇率换算页面 -->
 <view class="currency-page">
-  <top-nav mode="back" title="汇率换算" />
+  <top-nav mode="back" title="汇率转换" />
 
   <!-- 换算卡片区域 -->
   <view class="convert-area">
@@ -61,7 +60,7 @@
       <view class="numpad-key" data-digit="3" bindtap="onDigitTap"><text>3</text></view>
     </view>
     <view class="numpad-row">
-      <view class="numpad-key numpad-func" bindtap="onClear"><text>C</text></view>
+      <view class="numpad-key numpad-func" bindtap="onBackspace"><text>⌫</text></view>
       <view class="numpad-key" data-digit="0" bindtap="onDigitTap"><text>0</text></view>
       <view class="numpad-key numpad-func" bindtap="onDecimalTap"><text>.</text></view>
     </view>

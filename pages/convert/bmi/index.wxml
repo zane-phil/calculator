@@ -1,4 +1,50 @@
 <view class="page-container">
   <top-nav mode="back" title="BMI计算" />
-  <view class="placeholder"><text>⏳ 功能开发中</text></view>
+  <view class="bmi-scroll">
+    <view class="bmi-content">
+
+      <!-- 年龄 -->
+      <view class="field-block">
+        <view class="label">年龄</view>
+        <input class="input-field" type="number" placeholder="请输入年龄" placeholder-class="placeholder-style" value="{{age}}" bindinput="onAgeInput" />
+      </view>
+
+      <!-- 性别 -->
+      <view class="field-block">
+        <view class="label">性别</view>
+        <view class="gender-group">
+          <view class="gender-item {{gender === 'male' ? 'gender-active' : ''}}" bindtap="setGender" data-gender="male">
+            <text class="gender-icon">♂</text>
+            <text class="gender-text">男</text>
+          </view>
+          <view class="gender-item {{gender === 'female' ? 'gender-active' : ''}}" bindtap="setGender" data-gender="female">
+            <text class="gender-icon">♀</text>
+            <text class="gender-text">女</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 身高 -->
+      <view class="field-block">
+        <view class="label">身高 (厘米)</view>
+        <input class="input-field" type="digit" placeholder="请输入身高" placeholder-class="placeholder-style" value="{{height}}" bindinput="onHeightInput" />
+      </view>
+
+      <!-- 体重 -->
+      <view class="field-block">
+        <view class="label">体重 (公斤)</view>
+        <input class="input-field" type="digit" placeholder="请输入体重" placeholder-class="placeholder-style" value="{{weight}}" bindinput="onWeightInput" />
+      </view>
+
+      <!-- BMI说明 -->
+      <view class="bmi-info">
+        <view class="info-title">关于BMI</view>
+        <view class="info-desc">BMI（身体质量指数）是通过体重公斤数除以身高米数平方得出的数字，是目前国际上常用的衡量人体胖瘦程度及健康的标准。</view>
+      </view>
+
+      <!-- 计算按钮 -->
+      <button class="btn-calc" bindtap="calculateBMI">开始计算</button>
+
+    </view>
+  </view>
 </view>

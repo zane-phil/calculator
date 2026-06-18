@@ -1,4 +1,39 @@
-<view class="page-container">
+<view class="relative-container">
   <top-nav mode="back" title="称呼计算" />
-  <view class="placeholder"><text>⏳ 功能开发中</text></view>
+
+  <view class="display-area">
+    <view class="expression-row">
+      <text>{{expression || '我'}}</text>
+    </view>
+    <view class="result-row {{showResult ? 'has-result' : ''}}">
+      <text>{{showResult ? result : '自己'}}</text>
+    </view>
+  </view>
+
+  <view class="keyboard-area">
+    <view class="key-row">
+      <view class="key-btn" bindtap="onKeyTap" data-type="relation" data-val="夫">夫</view>
+      <view class="key-btn" bindtap="onKeyTap" data-type="relation" data-val="妻">妻</view>
+      <view class="key-btn key-orange" bindtap="onKeyTap" data-type="clear">C</view>
+      <view class="key-btn key-orange" bindtap="onKeyTap" data-type="backspace">
+        <text class="icon-backspace">⌫</text>
+      </view>
+    </view>
+    <view class="key-row">
+      <view class="key-btn" bindtap="onKeyTap" data-type="relation" data-val="父">父</view>
+      <view class="key-btn" bindtap="onKeyTap" data-type="relation" data-val="母">母</view>
+      <view class="key-btn" bindtap="onKeyTap" data-type="relation" data-val="子">子</view>
+      <view class="key-btn" bindtap="onKeyTap" data-type="relation" data-val="女">女</view>
+    </view>
+    <view class="key-row">
+      <view class="key-btn" bindtap="onKeyTap" data-type="relation" data-val="兄">兄</view>
+      <view class="key-btn" bindtap="onKeyTap" data-type="relation" data-val="弟">弟</view>
+      <view class="key-btn" bindtap="onKeyTap" data-type="relation" data-val="姐">姐</view>
+      <view class="key-btn" bindtap="onKeyTap" data-type="relation" data-val="妹">妹</view>
+    </view>
+    <view class="key-row last-row">
+      <view class="key-btn btn-each" bindtap="onKeyTap" data-type="each">互查</view>
+      <view class="key-btn btn-equal" bindtap="onKeyTap" data-type="equal">=</view>
+    </view>
+  </view>
 </view>

@@ -2,5 +2,7 @@
   "usingComponents": {
     "top-nav": "/components/top-nav/top-nav",
     "unit-picker": "/components/unit-picker/unit-picker"
-  }
+  },
+  "navigationBarTitleText": "汇率转换",
+  "disableScroll": true
 }

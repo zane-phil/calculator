@@ -1,10 +1,1 @@
-<svg viewBox="0 0 24 24" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <mask id="time-ring-mask">
-      <rect width="24" height="24" fill="white" />
-      <circle cx="12" cy="12" r="6.5" fill="black" />
-    </mask>
-  </defs>
-  <circle cx="12" cy="12" r="8.5" fill="#333333" mask="url(#time-ring-mask)" />
-  <path d="M 12 7.5 V 12 H 16.5" fill="none" stroke="#333333" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-</svg>
+<svg t="1781773710699" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="200" height="200"><path d="M512 69.818182c244.200727 0 442.181818 197.981091 442.181818 442.181818s-197.981091 442.181818-442.181818 442.181818S69.818182 756.200727 69.818182 512 267.799273 69.818182 512 69.818182z m-11.636364 209.454545a34.909091 34.909091 0 0 0-34.909091 34.909091v209.454546a34.909091 34.909091 0 0 0 34.909091 34.909091h209.454546a34.909091 34.909091 0 0 0 0-69.818182H535.272727v-174.545455a34.909091 34.909091 0 0 0-34.909091-34.909091z" fill="#323232"/></svg>

@@ -1,21 +1,29 @@
-/**
- * 汇率换算页面
- */
-
 const currencies = require('../../../data/currencies');
 const app = getApp();
+
+/**
+ * 数字格式化工具
+ * @param {string} numStr - 纯数字字符串
+ * @param {boolean} useThousandsSep - 是否启用千分位
+ */
+function formatNumber(numStr, useThousandsSep) {
+  if (!numStr || numStr === '—' || !useThousandsSep) return numStr;
+  const parts = String(numStr).split('.');
+  // 仅对整数部分添加千分位
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return parts.join('.');
+}
 
 Page({
   data: {
     sourceCurrency: 'CNY',
     targetCurrency: 'USD',
-    sourceAmount: '1',
-    targetAmount: '0.1385',
+    sourceAmount: '1',      // 内部始终存储纯数字字符串
+    targetAmount: '',       // 显示值（可能含千分位）
     showPicker: false,
-    pickerType: '',  // 'source' | 'target'
+    pickerType: '',
     pickerTitle: '',
     pickerOptions: [],
-    currencies: currencies,
     lastUpdate: ''
   },
 
@@ -29,47 +37,35 @@ Page({
     this.updateRates();
   },
 
-  /**
-   * 更新当前币种信息（用于显示旗标和名称）
-   */
   updateCurrencyInfo() {
     const sourceInfo = this.getCurrencyInfo(this.data.sourceCurrency);
     const targetInfo = this.getCurrencyInfo(this.data.targetCurrency);
     this.setData({ sourceInfo, targetInfo });
   },
 
-  /**
-   * 更新汇率数据
-   */
   updateRates() {
-    const rates = app.globalData.currencyRates;
+    const rates = app.globalData.currencyRates || {};
     let lastUpdate = app.globalData.lastRateUpdate || '';
 
     if (lastUpdate) {
       try {
         const date = new Date(lastUpdate);
-        lastUpdate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-      } catch (e) {}
+        lastUpdate = `${date.getFullYear()}年${String(date.getMonth() + 1).padStart(2, '0')}月${String(date.getDate()).padStart(2, '0')}日`;
+      } catch (e) {
+        lastUpdate = '';
+      }
     }
 
-    this.setData({
-      rates: rates,
-      lastUpdate: lastUpdate
-    });
-
-    // 重新计算
+    this.setData({ rates, lastUpdate });
     this.convert();
   },
 
-  /**
-   * 打开币种选择器
-   */
   onSourcePicker() {
     this.setData({
       showPicker: true,
       pickerType: 'source',
-      pickerTitle: '选择币种',
-      pickerOptions: this.data.currencies.map(c => ({ ...c, key: c.code })),
+      pickerTitle: '选择源币种',
+      pickerOptions: currencies.map(c => ({ ...c, key: c.code })),
       pickerSelected: this.data.sourceCurrency
     });
   },
@@ -78,38 +74,29 @@ Page({
     this.setData({
       showPicker: true,
       pickerType: 'target',
-      pickerTitle: '选择币种',
-      pickerOptions: this.data.currencies.map(c => ({ ...c, key: c.code })),
+      pickerTitle: '选择目标币种',
+      pickerOptions: currencies.map(c => ({ ...c, key: c.code })),
       pickerSelected: this.data.targetCurrency
     });
   },
 
-  /**
-   * 选中币种
-   */
   onPickerSelect(e) {
     const { key } = e.detail;
-    const type = this.data.pickerType;
-
-    if (type === 'source') {
+    if (this.data.pickerType === 'source') {
       this.setData({ sourceCurrency: key });
     } else {
       this.setData({ targetCurrency: key });
     }
-
     this.updateCurrencyInfo();
     this.convert();
   },
 
-  /**
-   * 关闭选择器
-   */
   onPickerClose() {
     this.setData({ showPicker: false });
   },
 
   /**
-   * 交换币种
+   * 交换币种：始终以1为输入，反向换算
    */
   onSwap() {
     const { sourceCurrency, targetCurrency } = this.data;
@@ -122,62 +109,47 @@ Page({
     this.convert();
   },
 
-  /**
-   * 数字输入
-   */
   onDigitTap(e) {
     const digit = e.currentTarget.dataset.digit;
-    let { sourceAmount } = this.data;
+    let amount = this.data.sourceAmount;
 
-    if (sourceAmount === '0' || sourceAmount === '1') {
-      sourceAmount = digit;
+    if (amount === '0' && digit !== '.') {
+      amount = digit;
+    } else if (amount === '1' && digit !== '.') {
+      amount = digit;
     } else {
-      sourceAmount = sourceAmount + digit;
+      amount = amount + digit;
     }
 
-    // 限制长度
-    if (sourceAmount.length > 15) return;
+    if (amount.replace('.', '').length > 15) return;
 
-    this.setData({ sourceAmount });
+    this.setData({ sourceAmount: amount });
     this.convert();
   },
 
-  /**
-   * 小数点
-   */
   onDecimalTap() {
-    let { sourceAmount } = this.data;
-    if (sourceAmount.includes('.')) return;
-
-    sourceAmount = sourceAmount + '.';
-    this.setData({ sourceAmount });
+    let amount = this.data.sourceAmount;
+    if (amount.includes('.')) return;
+    amount = amount + '.';
+    this.setData({ sourceAmount: amount });
   },
 
-  /**
-   * 退格
-   */
   onBackspace() {
-    let { sourceAmount } = this.data;
-    if (sourceAmount.length <= 1) {
-      sourceAmount = '0';
+    let amount = this.data.sourceAmount;
+    if (amount.length <= 1) {
+      amount = '0';
     } else {
-      sourceAmount = sourceAmount.slice(0, -1);
+      amount = amount.slice(0, -1);
     }
-    this.setData({ sourceAmount });
+    this.setData({ sourceAmount: amount });
     this.convert();
   },
 
-  /**
-   * 清除
-   */
   onClear() {
     this.setData({ sourceAmount: '0' });
     this.convert();
   },
 
-  /**
-   * 执行换算
-   */
   convert() {
     const { sourceCurrency, targetCurrency, sourceAmount } = this.data;
     const rates = this.data.rates || app.globalData.currencyRates;
@@ -187,44 +159,42 @@ Page({
       return;
     }
 
-    const amount = parseFloat(sourceAmount);
-    if (isNaN(amount)) {
+    // 清除可能残留的千分位逗号，确保计算准确
+    const cleanAmount = String(sourceAmount).replace(/,/g, '');
+    const amount = parseFloat(cleanAmount);
+
+    if (isNaN(amount) || amount <= 0) {
       this.setData({ targetAmount: '0' });
       return;
     }
 
-    // 通过基准货币（CNY）计算
-    let sourceRate, targetRate;
+    const sourceRate = rates[sourceCurrency];
+    const targetRate = rates[targetCurrency];
 
-    if (rates[sourceCurrency] !== undefined && rates[targetCurrency] !== undefined) {
-      sourceRate = rates[sourceCurrency];
-      targetRate = rates[targetCurrency];
-    } else {
-      // 如果缓存不是以 CNY 为基准
+    if (sourceRate === undefined || targetRate === undefined) {
       this.setData({ targetAmount: '—' });
       return;
     }
 
-    // 换算：先将源货币转为基准货币，再转为目标货币
+    // API返回的是 1 CNY = X 外币，公式：(输入 / 源汇率) * 目标汇率
     const baseAmount = amount / sourceRate;
     const result = baseAmount * targetRate;
 
-    // 格式化
-    if (Math.abs(result) < 0.01) {
-      this.setData({ targetAmount: result.toFixed(6) });
-    } else if (Math.abs(result) < 1) {
-      this.setData({ targetAmount: result.toFixed(4) });
+    // ✅ 动态读取全局小数位配置
+    const maxDecimals = app.globalData.decimalPlaces || 6;
+    let resultStr;
+    if (!isFinite(result)) {
+      resultStr = '—';
     } else {
-      this.setData({
-        targetAmount: parseFloat(result.toFixed(4)).toString()
-      });
+      resultStr = Number(result).toFixed(maxDecimals).replace(/\.?0+$/, '');
     }
+
+    // ✅ 仅对结果应用千分位（输入框始终保持纯数字）
+    const formattedResult = formatNumber(resultStr, app.globalData.thousandsSep);
+    this.setData({ targetAmount: formattedResult });
   },
 
-  /**
-   * 获取币种信息
-   */
   getCurrencyInfo(code) {
-    return currencies.find(c => c.code === code) || { code, name: code, symbol: '', flag: '' };
+    return currencies.find(c => c.code === code) || { code, name: code, flag: '' };
   }
 });

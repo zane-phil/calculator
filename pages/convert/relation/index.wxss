@@ -1,2 +1,100 @@
-.page-container{display:flex;flex-direction:column;height:100vh;background:#F7F7F7;}
-.placeholder{flex:1;display:flex;align-items:center;justify-content:center;font-size:32rpx;color:#8E8E93;}
+page {
+  background-color: #F7F7F7;
+  height: 100%;
+}
+
+.relative-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* 显示区 */
+.display-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 40rpx 44rpx;
+  background-color: #F7F7F7;
+}
+
+.expression-row {
+  font-size: 40rpx;
+  color: #8E8E93;
+  text-align: right;
+  word-break: break-all;
+  min-height: 50rpx;
+  margin-bottom: 12rpx;
+}
+
+.result-row {
+  font-size: 52rpx;
+  color: #8E8E93;
+  font-weight: 500;
+  text-align: right;
+  min-height: 70rpx;
+  transition: all 0.2s ease;
+}
+
+.result-row.has-result {
+  color: #1C1C1E;
+  font-size: 64rpx;
+  font-weight: 600;
+}
+
+/* 键盘 */
+.keyboard-area {
+  padding: 20rpx 30rpx 40rpx;
+  background-color: #F7F7F7;
+}
+
+.key-row {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.key-btn {
+  flex: 1;
+  height: 110rpx;
+  background: #FFFFFF;
+  border-radius: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #1C1C1E;
+}
+
+.key-btn:active {
+  opacity: 0.6;
+}
+
+.key-orange {
+  color: #FF6900;
+}
+
+/* 退格图标简化 */
+.icon-backspace {
+  font-size: 42rpx;
+  color: #FF6900;
+  font-weight: 400;
+}
+
+/* 末行 */
+.last-row .btn-each {
+  flex: 3;
+}
+
+.last-row .btn-equal {
+  flex: 1;
+  background: #FF6900;
+  color: #FFFFFF;
+}
+
+.last-row .btn-equal:active {
+  opacity: 0.7;
+}

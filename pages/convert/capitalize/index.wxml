@@ -1,4 +1,41 @@
 <view class="page-container">
   <top-nav mode="back" title="大写数字" />
-  <view class="placeholder"><text>⏳ 功能开发中</text></view>
+
+  <view class="display-area">
+    <view class="input-row">
+      <text wx:if="{{input || decimalPart}}" class="input-text">
+        {{input || '0'}}<text wx:if="{{hasDecimal}}">.{{decimalPart || ''}}</text>
+      </text>
+      <text wx:else class="input-text placeholder">输入数字</text>
+    </view>
+    <view class="result-row">
+      <text class="result-text">{{result}}</text>
+    </view>
+  </view>
+
+  <view class="keyboard">
+    <view class="key-row">
+      <view class="key-btn" bindtap="onKeyTap" data-type="digit" data-val="1">1</view>
+      <view class="key-btn" bindtap="onKeyTap" data-type="digit" data-val="2">2</view>
+      <view class="key-btn" bindtap="onKeyTap" data-type="digit" data-val="3">3</view>
+    </view>
+    <view class="key-row">
+      <view class="key-btn" bindtap="onKeyTap" data-type="digit" data-val="4">4</view>
+      <view class="key-btn" bindtap="onKeyTap" data-type="digit" data-val="5">5</view>
+      <view class="key-btn" bindtap="onKeyTap" data-type="digit" data-val="6">6</view>
+    </view>
+    <view class="key-row">
+      <view class="key-btn" bindtap="onKeyTap" data-type="digit" data-val="7">7</view>
+      <view class="key-btn" bindtap="onKeyTap" data-type="digit" data-val="8">8</view>
+      <view class="key-btn" bindtap="onKeyTap" data-type="digit" data-val="9">9</view>
+    </view>
+    <view class="key-row">
+      <view class="key-btn key-func" bindtap="onKeyTap" data-type="dot">.</view>
+      <view class="key-btn" bindtap="onKeyTap" data-type="digit" data-val="0">0</view>
+      <view class="key-btn key-func" bindtap="onKeyTap" data-type="backspace">⌫</view>
+    </view>
+    <view class="key-row">
+      <view class="key-btn key-clear" bindtap="onKeyTap" data-type="clear">AC</view>
+    </view>
+  </view>
 </view>

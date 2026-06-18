@@ -1,2 +1,123 @@
-.page-container{display:flex;flex-direction:column;height:100vh;background:#F7F7F7;}
-.placeholder{flex:1;display:flex;align-items:center;justify-content:center;font-size:32rpx;color:#8E8E93;}
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #F7F7F7;
+}
+
+/* 进制选择 */
+.base-tabs {
+  display: flex;
+  padding: 20rpx 30rpx;
+  gap: 16rpx;
+}
+
+.base-tab {
+  flex: 1;
+  height: 68rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #8E8E93;
+  transition: all 0.2s;
+}
+
+.tab-active {
+  background: #FF6900;
+  color: #FFFFFF;
+}
+
+/* 显示区 */
+.display-area {
+  flex: 1;
+  padding: 30rpx 36rpx;
+  overflow-y: auto;
+}
+
+.input-display {
+  margin-bottom: 30rpx;
+}
+
+.input-text {
+  font-size: 52rpx;
+  font-weight: 600;
+  color: #1C1C1E;
+  word-break: break-all;
+}
+
+.input-placeholder {
+  font-size: 40rpx;
+  color: #C7C7CC;
+}
+
+/* 结果卡片 */
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 14rpx;
+}
+
+.result-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 28rpx;
+  background: #FFFFFF;
+  border-radius: 14rpx;
+  border: 2rpx solid transparent;
+}
+
+.card-active {
+  border-color: #FF6900;
+  background: #FFF5EB;
+}
+
+.card-label {
+  font-size: 26rpx;
+  color: #8E8E93;
+}
+
+.card-value {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1C1C1E;
+}
+
+/* 键盘 */
+.keyboard {
+  padding: 16rpx 24rpx 34rpx;
+}
+
+.key-row {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.key-btn {
+  flex: 1;
+  height: 100rpx;
+  background: #FFFFFF;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #1C1C1E;
+}
+
+.key-btn:active { opacity: 0.6; }
+
+.key-func {
+  color: #FF6900;
+}
+
+.key-clear {
+  flex: 3;
+  color: #FF6900;
+}

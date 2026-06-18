@@ -1,2 +1,74 @@
-.page-container{display:flex;flex-direction:column;height:100vh;background:#F7F7F7;}
-.placeholder{flex:1;display:flex;align-items:center;justify-content:center;font-size:32rpx;color:#8E8E93;}
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #F7F7F7;
+}
+
+.display-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 40rpx 44rpx;
+}
+
+.input-row {
+  margin-bottom: 20rpx;
+  min-height: 56rpx;
+}
+
+.input-text {
+  font-size: 44rpx;
+  color: #1C1C1E;
+  font-weight: 500;
+}
+
+.placeholder {
+  color: #C7C7CC;
+}
+
+.result-row {
+  min-height: 80rpx;
+}
+
+.result-text {
+  font-size: 36rpx;
+  color: #FF6900;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.keyboard {
+  padding: 24rpx 30rpx 40rpx;
+}
+
+.key-row {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.key-btn {
+  flex: 1;
+  height: 110rpx;
+  background: #FFFFFF;
+  border-radius: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38rpx;
+  font-weight: 600;
+  color: #1C1C1E;
+}
+
+.key-btn:active { opacity: 0.6; }
+
+.key-func {
+  color: #FF6900;
+}
+
+.key-clear {
+  color: #FF6900;
+}
