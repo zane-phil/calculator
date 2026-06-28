@@ -91,29 +91,17 @@ Page({
   doEach() {
     const { result } = this.data;
     if (!result || result === '自己') return;
-    const reverseMap = {
-      '爸爸': '儿子/女儿', '妈妈': '儿子/女儿',
-      '爷爷': '孙子/孙女', '奶奶': '孙子/孙女',
-      '外公': '外孙/外孙女', '外婆': '外孙/外孙女',
-      '公公': '儿媳', '婆婆': '儿媳',
-      '岳父': '女婿', '岳母': '女婿',
-      '老公': '老婆', '老婆': '老公',
-      '哥哥': '弟弟/妹妹', '弟弟': '哥哥/姐姐',
-      '姐姐': '弟弟/妹妹', '妹妹': '哥哥/姐姐',
-      '伯伯': '侄子/侄女', '叔叔': '侄子/侄女',
-      '舅舅': '外甥/外甥女', '姨妈': '外甥/外甥女',
-      '姑姑': '侄子/侄女',
+    const rev = { '爸爸':'儿子/女儿','妈妈':'儿子/女儿','爷爷':'孙子/孙女','奶奶':'孙子/孙女','外公':'外孙/外孙女','外婆':'外孙/外孙女','公公':'儿媳','婆婆':'儿媳','岳父':'女婿','岳母':'女婿','老公':'老婆','老婆':'老公','哥哥':'弟弟/妹妹','弟弟':'哥哥/姐姐','姐姐':'弟弟/妹妹','妹妹':'哥哥/姐姐','伯伯':'侄子/侄女','叔叔':'侄子/侄女','舅舅':'外甥/外甥女','姨妈':'外甥/外甥女','姑姑':'侄子/侄女' };
+    const r = rev[result];
+    if (r) wx.showModal({ title:'互查结果', content:'对方称呼您为：'+r, showCancel:false, confirmColor:'#FF6900' });
+    else wx.showToast({ title:'暂未录入反向关系', icon:'none' });
+  },
+
+  onShareAppMessage() {
+    return {
+      title: '多功能计算器 - 汇率/单位/个税/房贷/BMI',
+      path: '/pages/index/index'
     };
-    const reverse = reverseMap[result];
-    if (reverse) {
-      wx.showModal({
-        title: '互查结果',
-        content: '对方称呼您为：' + reverse,
-        showCancel: false,
-        confirmColor: '#FF6900'
-      });
-    } else {
-      wx.showToast({ title: '暂未录入反向关系', icon: 'none' });
-    }
   }
 });
+

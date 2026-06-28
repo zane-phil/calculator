@@ -11,6 +11,9 @@ App({
     lastRateUpdate: null, // 汇率数据最后更新时间戳
   },
   onLaunch() {
+    // 全局启用分享
+    wx.showShareMenu({ withShareTicket: true, menus: ['shareAppMessage', 'shareTimeline'] });
+
     // 加载用户设置
     const settings = storage.getSettings();
     this.globalData.soundEnabled = settings.soundEnabled !== false;
@@ -95,4 +98,11 @@ App({
 
     tryFetch(0);
   },
+
+  onShareAppMessage() {
+    return {
+      title: '多功能计算器 - 汇率/单位/个税/房贷/BMI',
+      path: '/pages/index/index'
+    };
+  }
 });

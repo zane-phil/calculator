@@ -5,9 +5,9 @@ const HEX_DIGITS = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E',
 
 Page({
   data: {
-    sourceBase: 16,          // 源进制
+    sourceBase: 16,
     input: '',
-    results: []              // [{ base: 2, label: '二进制', value: '...' }]
+    results: []
   },
 
   onBaseTap(e) {
@@ -42,10 +42,10 @@ Page({
       if (isNaN(dec)) { this.setData({ results: [] }); return; }
 
       const targets = [
-        { base: 2,  label: '二进制 (BIN)', prefix: '' },
-        { base: 8,  label: '八进制 (OCT)', prefix: '' },
-        { base: 10, label: '十进制 (DEC)', prefix: '' },
-        { base: 16, label: '十六进制 (HEX)', prefix: '' },
+        { base: 2,  label: '二进制 (BIN)' },
+        { base: 8,  label: '八进制 (OCT)' },
+        { base: 10, label: '十进制 (DEC)' },
+        { base: 16, label: '十六进制 (HEX)' },
       ];
 
       const results = targets.map(t => ({
@@ -58,5 +58,12 @@ Page({
     } catch (e) {
       this.setData({ results: [] });
     }
+  },
+
+  onShareAppMessage() {
+    return {
+      title: '多功能计算器 - 汇率/单位/个税/房贷/BMI',
+      path: '/pages/index/index'
+    };
   }
 });

@@ -18,10 +18,9 @@
     "navigationBarTextStyle": "black",
     "backgroundColor": "#F7F7F7",
     "navigationStyle": "custom",
-    "enablePullDownRefresh": false,
-    "disableScroll": true
+    "enablePullDownRefresh": false
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents",
+    "lazyCodeLoading": "requiredComponents",
   "componentPlaceholder": {}}

@@ -100,5 +100,13 @@ Page({
         }
       }
     });
-  }
+  },
+
+onShareAppMessage() {
+    return {
+      title: "多功能计算器 - 汇率/单位/个税/房贷/BMI",
+      path: "/pages/index/index"
+    };
+  },
+
 });

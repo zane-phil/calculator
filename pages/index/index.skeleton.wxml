@@ -1,0 +1,120 @@
+<!--
+此文件为开发者工具生成，生成时间: 2026/6/25下午9:14:43
+使用方法：
+在 /Users/zhangzhen/Desktop/Project/calculator/pages/index/index.wxml 引入模板
+
+```
+<import src="index.skeleton.wxml"/>
+<template is="skeleton" wx:if="{{loading}}" />
+```
+
+在 /Users/zhangzhen/Desktop/Project/calculator/pages/index/index.wxss 中引入样式
+```
+@import "./index.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="calc-page">
+      <view is="components/top-nav/top-nav">
+        <view class="nav--top-nav" style="padding-top: 47px;">
+          <view class="nav--nav-tabs">
+            <view class="nav--nav-tab nav--nav-tab-active">
+              <text class="nav--nav-label sk-transparent sk-text-14-2857-367 sk-text">计算</text>
+            </view>
+            <view class="nav--nav-tab">
+              <text class="nav--nav-label sk-transparent sk-text-14-2857-266 sk-text">换算</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view is="pages/index/components/display/display">
+        <view class="display--display">
+          <view class="display--history-area"></view>
+          <view class="display--interact-area">
+            <scroll-view enhanced="true" scroll-x="true" class="display--expr-scroll" scroll-left="0">
+              <text class="display--expr-text sk-transparent" style="scroll-snap-align: none;">
+        0<text class="display--cursor sk-transparent sk-opacity">|</text></text>
+            </scroll-view>
+          </view>
+        </view>
+      </view>
+      <view is="pages/index/components/numpad/numpad">
+        <view class="numpad--numpad numpad--numpad-basic">
+          <view class="numpad--key-row">
+            <view class="numpad--key numpad--key-func" data-key="[object Object]" data-type="clear" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-text-14-2857-708 sk-text">C</text>
+            </view>
+            <view class="numpad--key numpad--key-func" data-key="[object Object]" data-type="backspace" hover-class="key-pressed">
+              <image class="numpad--key-icon numpad--key-icon-backspace sk-image"></image>
+            </view>
+            <view class="numpad--key numpad--key-func" data-key="[object Object]" data-type="percent" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-text-14-2857-981 sk-text">%</text>
+            </view>
+            <view class="numpad--key numpad--key-operator" data-key="[object Object]" data-type="operator" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">÷</text>
+            </view>
+          </view>
+          <view class="numpad--key-row">
+            <view class="numpad--key numpad--key-num" data-key="[object Object]" data-type="digit" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">7</text>
+            </view>
+            <view class="numpad--key numpad--key-num" data-key="[object Object]" data-type="digit" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">8</text>
+            </view>
+            <view class="numpad--key numpad--key-num" data-key="[object Object]" data-type="digit" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">9</text>
+            </view>
+            <view class="numpad--key numpad--key-operator" data-key="[object Object]" data-type="operator" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">×</text>
+            </view>
+          </view>
+          <view class="numpad--key-row">
+            <view class="numpad--key numpad--key-num" data-key="[object Object]" data-type="digit" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">4</text>
+            </view>
+            <view class="numpad--key numpad--key-num" data-key="[object Object]" data-type="digit" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">5</text>
+            </view>
+            <view class="numpad--key numpad--key-num" data-key="[object Object]" data-type="digit" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">6</text>
+            </view>
+            <view class="numpad--key numpad--key-operator" data-key="[object Object]" data-type="operator" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">−</text>
+            </view>
+          </view>
+          <view class="numpad--key-row">
+            <view class="numpad--key numpad--key-num" data-key="[object Object]" data-type="digit" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">1</text>
+            </view>
+            <view class="numpad--key numpad--key-num" data-key="[object Object]" data-type="digit" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">2</text>
+            </view>
+            <view class="numpad--key numpad--key-num" data-key="[object Object]" data-type="digit" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">3</text>
+            </view>
+            <view class="numpad--key numpad--key-operator" data-key="[object Object]" data-type="operator" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">+</text>
+            </view>
+          </view>
+          <view class="numpad--key-row">
+            <view class="numpad--key numpad--key-num" data-key="[object Object]" data-type="toggleLayout" hover-class="key-pressed">
+              <image class="numpad--key-icon sk-image"></image>
+            </view>
+            <view class="numpad--key numpad--key-num" data-key="[object Object]" data-type="digit" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">0</text>
+            </view>
+            <view class="numpad--key numpad--key-num" data-key="[object Object]" data-type="decimal" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">.</text>
+            </view>
+            <view class="numpad--key numpad--key-equals" data-key="[object Object]" data-type="equals" hover-class="key-pressed">
+              <text class="numpad--key-label sk-transparent sk-opacity">=</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
